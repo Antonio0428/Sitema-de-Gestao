@@ -1,0 +1,52 @@
+<$- include('../partials/head.ejs') $>
+<$- include('../partials/navbar.ejs') $>
+<body>
+    <div class="container">
+        <br>
+        <h1  class="card-title dimCard">Categorias</h1> 
+        <br>
+            <div class="card dimCard">
+                <div class="card-header">
+                  <a href="/categoria/criar" style="float: right;" class="btn btn-success">
+                    <i class="bi bi-plus-circle"></i> <strong>Criar</strong>
+                  </a>
+                </div>
+                <div class="card-body">
+                  
+                    <br>
+                    <hr>
+                  <table class="table dimCard">
+                    <tr>
+                      <th>
+                        id
+                      </th>
+                      <th>
+                        Nome
+                      </th>
+                      <th>
+                        Ações
+                      </th>
+                    </tr>
+                    <tbody>
+                      <$ categorias.forEach(categoria=>{ $>
+                      <tr>
+                        <td><$= categoria.id $></td>
+                        <td><$= categoria.nome $></td>
+                        <td>
+                          <a href="#" class="icon-link">
+                            <svg class="bi" fill="currentColor">
+                              <use xlink:href="[caminho_do_ícone_de_olho]"><i class="bi bi-eye-fill"></i></use>
+                            </svg>
+                            Ver detalhes
+                          </a>
+                        </td>
+                      </tr>
+                      <$ }) $>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+    </div>
+    
+</body>
+<$- include('../partials/footer.ejs')  $>

@@ -1,0 +1,62 @@
+<$- include('../partials/head.ejs') $>
+<$- include('../partials/navbar.ejs') $>
+
+<body>
+    <br>
+    <div class="container">
+
+        <br>
+        <div class="card dimCard">
+              
+            <div class="card-body">
+              <div ">
+                <h5><strong>Lista de Produtos</strong></h5>
+              </div>
+                <hr>
+              <table class="table ">
+                <tr>
+                  <th>
+                    id
+                  </th>
+                  <th>
+                    Nome
+                  </th>
+                 <th>
+                    Preço
+                 </th>
+                  <th>
+                    Ações
+                  </th>
+                </tr>
+                <tbody>
+                  <$ subprodutos.forEach(subproduto=>{ $>
+                  <tr>
+                    
+                    <td><$= subproduto.id $></td>
+                    <td><$= subproduto.nome $></td>
+                    <td><$= subproduto.preco $></td>
+                 
+                      <td>
+                          <a href="/subproduto/detalhes/<$= subproduto.id $>/<$= subproduto.produto.id $>" class="icon-link">
+                              <svg class="bi" fill="currentColor">
+                                <use xlink:href="[caminho_do_ícone_de_olho]"><i class="bi bi-eye-fill"></i></use>
+                              </svg>
+                              Ver detalhes
+                            </a>
+                      <a href="" class="btn btn-primary"><i class="bi bi-pencil">Editar</i></a>
+                      <form style="display: inline;" action="/categoria/remover" method="post">
+                        <input type="hidden" name="id" value="">
+                        <button  class="btn btn-danger"><i class="bi bi-trash">Eliminar</i></button>
+                      </form>
+                    </td>
+                  </tr>
+                  <$ }) $>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <br>
+    </div>
+
+</body>
+<$- include('../partials/footer.ejs')  $>

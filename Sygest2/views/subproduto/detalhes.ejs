@@ -1,0 +1,39 @@
+<$- include('../partials/head.ejs') $>
+<$- include('../partials/navbar.ejs') $>
+
+<body>
+    
+    <div class="container">
+        <br>
+        <h1><strong>Detalhe do produto</strong> </h1>
+        <br>
+        <div class="">
+            <a href="/subproduto/criar" type="button" class="btn btn-secondary dimCard">
+              <i class="bi bi-chevron-left">Voltar</i> 
+            </a>
+          </div>
+          <br>
+        <div class="card">
+            <div class="card-header">
+                <h5><strong><$= subproduto.nome$></strong></h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> <strong>Nome: </strong><$= subproduto.nome $> </li>
+                    <li class="list-group-item"> <strong>Preço: </strong><$= subproduto.preco $>  kz</li>
+                    <li class="list-group-item"> <strong>Peso: </strong><$= subproduto.peso $>  kg</li>
+                    <li class="list-group-item"> <strong>Subcategoria: </strong><$= produto.nome $> </li>
+                    <li class="list-group-item"> <strong>Categoria: </strong><$= produto.categoria.nome $> </li>
+                    <li class="list-group-item"> <strong>Tamanho: </strong><$= subproduto.tamanho $> </li>
+                    <li class="list-group-item"> <strong>Cor: </strong><$= subproduto.cor $> </li>
+                    <li class="list-group-item"> <strong>Descrição: </strong><$= subproduto.descricao $> </li>
+                    
+                  </ul>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+</body>
+<$- include('../partials/footer.ejs')  $>

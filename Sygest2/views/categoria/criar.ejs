@@ -1,0 +1,68 @@
+<$- include('../partials/head.ejs') $>
+<$- include('../partials/navbar.ejs') $>
+<body>
+    <div class="container">
+      <br>
+      <div class="card dimCard">
+        
+          <div class="card-body">
+            <h5 class="card-title "><strong>Nova Categoria</strong> </h5>
+            <hr>
+            <form class="" action="/categoria/cadastro" method="post">
+              
+              <input name="nome" class="form-control" type="text" placeholder="Nome da categoria" required>
+              <br>
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save"> Salvar</i>
+              </button>
+            </form>
+          </div>
+        </div>
+        
+
+
+        <br>
+            <div class="card dimCard">
+                
+                <div class="card-body">
+                  <div ">
+                    <h5><strong>Lista de Categorias</strong></h5>
+                  </div>
+                    <hr>
+                  <table class="table dimCard">
+                    <tr>
+                      <th>
+                        id
+                      </th>
+                      <th>
+                        Nome
+                      </th>
+                      <th>
+                        Ações
+                      </th>
+                    </tr>
+                    <tbody>
+                      <$ categorias.forEach(categoria=>{ $>
+                      <tr>
+                        
+                        <td><$= categoria.id $></td>
+                        <td><$= categoria.nome $></td>
+                        <td>
+                          <a href="/categoria/editar/<$= categoria.id $>" class="btn btn-primary"><i class="bi bi-pencil">Editar</i></a>
+                          <form style="display: inline;" action="/categoria/remover" method="post">
+                            <input type="hidden" name="id" value="<$= categoria.id $>">
+                            <button  class="btn btn-danger"><i class="bi bi-trash">Eliminar</i></button>
+                          </form>
+                        </td>
+                      </tr>
+                      <$ }) $>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <br>
+    </div>
+
+  
+</body>
+<$- include('../partials/footer.ejs')  $>

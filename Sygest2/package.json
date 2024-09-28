@@ -1,0 +1,21 @@
+{
+  "name": "canil",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@sequelize/mysql": "^7.0.0-alpha.42",
+    "body-parser": "^1.20.3",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "jquery": "^3.7.1",
+    "mysql2": "^3.11.3"
+  }
+}

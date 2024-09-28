@@ -1,0 +1,110 @@
+<$- include('../partials/head.ejs') $>
+<$- include('../partials/navbar.ejs') $>
+
+<body>
+    
+    <div class="container">
+
+      <div class="card dimCard">
+        <div class="card-body">
+          <form class="dimCard" action="/subproduto/salvar" method="POST">
+            <div class="form-group">
+                <br>
+                <input placeholder="Nome do produto" type="text" class="form-control" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <br>
+                <input placeholder="Peso (kg)" type="number" step="0.01" class="form-control" id="peso" name="peso" required>
+            </div>
+            <div class="form-group">
+                <br>
+                <input placeholder="Tamanho (mxn)" type="text" class="form-control" id="tamanho" name="tamanho" required>
+            </div>
+            <div class="form-group">
+                <br>
+                <input placeholder="Cor do produto" type="text" class="form-control" id="cor" name="cor" required>
+            </div>
+            <div class="form-group">
+                <br>
+                <input placeholder="Preço (kz)" type="number" step="0.01" class="form-control" id="preco" name="preco" required>
+            </div>
+            <div class="form-group">
+                <label for="produto">Subcategoria:</label>
+                <select name="id" class="form-control" id="produto">
+                  <$ produtos.forEach(produto=>{ $>
+                  <option value="<$= produto.id $>"><$= produto.nome $></option>
+                  
+                  <$ }) $>
+                  </select>
+              </div>
+            <div class="form-group">
+                <br>
+                <textarea placeholder="Descrição do produto" class="form-control" id="descricao" name="descricao" rows="4" required></textarea>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">
+              <i class="bi bi-save"> Salvar</i></button>
+        </form>
+        </div>
+      </div>
+
+
+
+        <br>
+        <div class="card dimCard">
+              
+            <div class="card-body">
+              <div ">
+                <h5><strong>Subcategorias</strong></h5>
+              </div>
+                <hr>
+              <table class="table ">
+                <tr>
+                  <th>
+                    id
+                  </th>
+                  <th>
+                    Nome
+                  </th>
+                 <th>
+                    Preço
+                 </th>
+                 <th>
+                    Subcategoria
+                 </th>
+                  <th>
+                    Ações
+                  </th>
+                </tr>
+                <tbody>
+                  <$ subprodutos.forEach(subproduto=>{ $>
+                  <tr>
+                    
+                    <td><$= subproduto.id $></td>
+                    <td><$= subproduto.nome $></td>
+                    <td><$= subproduto.preco $></td>
+                    <td><$= subproduto.produto.nome $></td>
+                      <td>
+                          <a href="/subproduto/detalhes/<$= subproduto.id $>/<$= subproduto.produto.id $>" class="icon-link">
+                              <svg class="bi" fill="currentColor">
+                                <use xlink:href="[caminho_do_ícone_de_olho]"><i class="bi bi-eye-fill"></i></use>
+                              </svg>
+                              Ver detalhes
+                            </a>
+                      <a href="" class="btn btn-primary"><i class="bi bi-pencil">Editar</i></a>
+                      <form style="display: inline;" action="/categoria/remover" method="post">
+                        <input type="hidden" name="id" value="">
+                        <button  class="btn btn-danger"><i class="bi bi-trash">Eliminar</i></button>
+                      </form>
+                    </td>
+                  </tr>
+                  <$ }) $>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <br>
+    </div>
+
+</body>
+<$- include('../partials/footer.ejs')  $>

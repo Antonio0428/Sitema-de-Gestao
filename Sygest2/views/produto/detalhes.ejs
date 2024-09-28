@@ -1,0 +1,44 @@
+<$- include('../partials/head.ejs') $>
+<$- include('../partials/navbar.ejs') $>
+
+<body>
+    
+    <div class="container">
+        <br>
+        <h1><strong>Detalhe do produto</strong> </h1>
+        <br>
+        <div class="">
+            <a href="/produto/criar" type="button" class="btn btn-secondary dimCard">
+              <i class="bi bi-chevron-left">Voltar</i> 
+            </a>
+          </div>
+          <br>
+        <div class="card">
+            <div class="card-header">
+                <h5><strong><$= produto.nome$></strong></h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group ">
+                    <li class="list-group-item"> <strong>Nome: </strong><$= produto.nome $> </li>
+                    <li class="list-group-item"> <strong>Categoria: </strong><$= produto.categoria.nome $> </li>
+                    <li class="list-group-item"> <strong>Descrição: </strong><$= produto.descricao $> </li>
+                  </ul>
+                  <hr>
+
+                  <ul class="list-group list-group-flush dimCard">
+                    <li class="list-group-item active"> <strong>Lista de produto</strong><a style="float: right;" href="/subproduto/criar/<$= produto.id $>" class="btn btn-light"><i class="bi bi-plus">Cadastrar</i></a></li>
+                  <$ subprodutos.forEach(subproduto=>{ $>
+                        <li class="list-group-item">
+                             <strong>
+                                <$= subproduto.nome $> <a style="float: right;" href="/subproduto/criar" class="btn btn-primary"><i class="bi bi-pencil">Editar</i></a>
+                            </strong>
+                            </li>
+                    <$ }) $>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+</body>
+<$- include('../partials/footer.ejs')  $>

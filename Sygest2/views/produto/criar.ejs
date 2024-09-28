@@ -1,0 +1,96 @@
+<$- include('../partials/head.ejs') $>
+<$- include('../partials/navbar.ejs') $>
+
+<body>
+    
+    <div class="container">
+        <br>
+        <div class="card dimCard">
+          <div class="card-body">
+            <h5>
+              <strong>Nova Subcategoria</strong>
+            </h5>
+            <hr>
+            <form class="" method="post" action="/produto/salvar">
+              <div class="form-group">
+                
+                <input name="nome" type="text" class="form-control" id="nomeProduto" placeholder="Digite o nome da Subcategoria" required>
+              </div>
+              <div class="form-group">
+                <br>
+                <textarea name="descricao" placeholder="Digite a descrição do produto" class="form-control" id="descricao" rows="3" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="categoria">Categoria:</label>
+                <select name="categoriaId" class="form-control" id="categoria">
+                  <$ categorias.forEach(categoria=>{ $>
+                  <option value="<$= categoria.id $>"><$= categoria.nome $></option>
+                  
+                  <$ }) $>
+                  </select>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save"> Salvar</i></button>
+            </form>
+          </div>
+        </div>
+
+
+          <br>
+          <div class="card dimCard">
+              
+              <div class="card-body">
+                <div ">
+                  <h5><strong>Subcategorias</strong></h5>
+                </div>
+                  <hr>
+                <table class="table ">
+                  <tr>
+                    <th>
+                      id
+                    </th>
+                    <th>
+                      Nome
+                    </th>
+                    <th>
+                        Categoria
+                    </th>
+                        
+                    <th>
+                      Ações
+                    </th>
+                  </tr>
+                  <tbody>
+                    <$ produtos.forEach(produto=>{ $>
+                    <tr>
+                      
+                      <td><$= produto.id $></td>
+                      <td><$= produto.nome $></td>
+                      <td><$= produto.categoria.nome $></td>
+                        <td>
+                            <a href="/produto/detalhes/<$= produto.id $>" class="icon-link">
+                                <svg class="bi" fill="currentColor">
+                                  <use xlink:href="[caminho_do_ícone_de_olho]"><i class="bi bi-eye-fill"></i></use>
+                                </svg>
+                                Ver detalhes
+                              </a>
+                        <a href="" class="btn btn-primary"><i class="bi bi-pencil">Editar</i></a>
+                        <form style="display: inline;" action="/categoria/remover" method="post">
+                          <input type="hidden" name="id" value="">
+                          <button  class="btn btn-danger"><i class="bi bi-trash">Eliminar</i></button>
+                        </form>
+                      </td>
+                    </tr>
+                    <$ }) $>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <br>
+
+
+    </div>
+
+</body>
+<$- include('../partials/footer.ejs')  $>
